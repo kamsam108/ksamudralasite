@@ -2,9 +2,9 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
 
 /*
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	CSS Main 
+	Kamran Samudrala
+	Built using a template for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 html, body, div, span, applet, object,
@@ -2932,9 +2932,9 @@ input, select, textarea {
 
 		header > .date {
 			display: block;
-			font-size: 0.8rem;
-			height: 1;
-			margin: 0 0 1rem 0;
+			font-size: 1rem;
+			height: 2;
+			margin: 5 0 1rem 0;
 			position: relative;
 		}
 
@@ -3802,17 +3802,20 @@ input, select, textarea {
 		}
 
 			#main > .post header.major > .date {
-				margin-top: -2rem;
+				margin-top: -0.5rem;
 			}
 
 			#main > .post header.major > h1, #main > .post header.major h2 {
 				font-size: 4rem;
 				line-height: 1.1;
-				margin: 0 0 2rem 0;
+				margin: 0 0 -0.5rem 0;
+				padding: 4rem 4rem 3rem 4rem; 
 			}
 
 			#main > .post.featured {
 				text-align: center;
+				margin: 0 0 -0.5rem 0;
+				padding: 4rem 4rem 3rem 4rem; 
 			}
 
 			@media screen and (max-width: 1280px) {
