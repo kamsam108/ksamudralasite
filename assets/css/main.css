@@ -3962,6 +3962,7 @@ input, select, textarea {
 		@media screen and (max-width: 480px) {
 
 			#main {
+				width: calc((100% - 4rem) * 1.09)
 			/*	width: 100%;       - This is the width of the main elements on mobile devices - currently set to not cover whole screen */ 
 			}
 
@@ -4399,6 +4400,7 @@ input, select, textarea {
 		@media screen and (max-width: 480px) {
 
 			#footer {
+				width: calc((100% - 4rem) * 1.09)
 			/*	width: 100%;  this should be the same as the main 480px footer width; currently set to be same as desktop (so doesn't affect bg border)*/
 			}
 
