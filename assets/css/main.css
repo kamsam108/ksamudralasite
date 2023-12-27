@@ -3237,10 +3237,10 @@ input, select, textarea {
 /* Wrapper */
 
 	#wrapper {
-		-moz-transition: opacity 0.5s ease;
-		-webkit-transition: opacity 0.5s ease;
-		-ms-transition: opacity 0.5s ease;
-		transition: opacity 0.5s ease;
+		-moz-transition: opacity 0.2s ease;
+		-webkit-transition: opacity 0.2s ease;
+		-ms-transition: opacity 0.2s ease;
+		transition: opacity 0.2s ease;
 		position: relative;
 		z-index: 1;
 		overflow: hidden;
@@ -3962,7 +3962,7 @@ input, select, textarea {
 		@media screen and (max-width: 480px) {
 
 			#main {
-				width: 100%;
+			/*	width: 100%;       - This is the width of the main elements on mobile devices - currently set to not cover whole screen */ 
 			}
 
 		}
@@ -4399,7 +4399,7 @@ input, select, textarea {
 		@media screen and (max-width: 480px) {
 
 			#footer {
-				width: 100%;
+			/*	width: 100%;  this should be the same as the main 480px footer width; currently set to be same as desktop (so doesn't affect bg border)*/
 			}
 
 		}
