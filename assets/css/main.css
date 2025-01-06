@@ -1,11 +1,21 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
 /*
 	CSS Main 
 	Kamran Samudrala
 	Built using a template for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
+/* Add these color variables at the top */
+:root {
+    --color-bg: #000000;
+    --color-text: #ffffff;
+    --color-accent: #00ff9f;
+    --color-accent-dark: #00cc7f;
+    --color-nav: rgba(0, 255, 159, 0.1);
+}
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -99,7 +109,8 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: #1e252d;
+		background-color: #000000 !important;
+		min-height: 100vh;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -144,7 +155,7 @@ input, select, textarea {
 		}
 
 	body {
-		color: #212931;
+		color: #ffffff;
 	}
 
 	body, input, select, textarea {
@@ -165,6 +176,7 @@ input, select, textarea {
 
 		a:hover {
 			border-bottom-color: transparent;
+			color: #18bfef !important;
 		}
 
 	strong, b {
@@ -288,12 +300,12 @@ input, select, textarea {
 	}
 
 	input, select, textarea {
-		color: #212931;
+		color: #ffffff;
 	}
 
 	a {
-		color: #212931;
-		border-bottom-color: rgba(33, 41, 49, 0.5);
+		color: #ffffff;
+		border-bottom-color: rgba(255, 255, 255, 0.5);
 	}
 
 		a:hover {
@@ -302,11 +314,11 @@ input, select, textarea {
 		}
 
 	strong, b {
-		color: #212931;
+		color: #ffffff;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #212931;
+		color: #ffffff;
 	}
 
 	blockquote {
@@ -2589,13 +2601,14 @@ input, select, textarea {
 /* Image */
 
 	.image {
-		border: 0;
-		display: inline-block;
-		position: relative;
+		border: 2px solid rgba(0, 255, 159, 0.2);
+		border-radius: 4px;
+		overflow: hidden;
 	}
 
 		.image img {
 			display: block;
+			transition: transform 0.3s ease;
 		}
 
 		.image.left, .image.right {
@@ -3244,6 +3257,9 @@ input, select, textarea {
 		position: relative;
 		z-index: 1;
 		overflow: hidden;
+		background-color: #000000 !important;
+		background-image: none !important;
+		min-height: 100vh;
 	}
 
 		#wrapper > .bg {
@@ -3252,8 +3268,8 @@ input, select, textarea {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background-color: #144c60;
-			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/bg2.jpg");
+			background-color: #000000;
+			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/black.png");
 			background-size: auto,								auto,														100% auto;
 			background-position: center,								center,														top center;
 			background-repeat: repeat,								no-repeat,													no-repeat;
@@ -3303,33 +3319,25 @@ input, select, textarea {
 /* Intro */
 
 	#intro {
-		color: #ffffff;
-		padding: 8rem 4rem 6rem 4rem ;
-		-moz-align-items: center;
-		-webkit-align-items: center;
-		-ms-align-items: center;
-		align-items: center;
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
+		background-color: #000000;
+		padding: 4rem 2rem;
 		display: flex;
-		-moz-flex-direction: column;
-		-webkit-flex-direction: column;
-		-ms-flex-direction: column;
 		flex-direction: column;
-		-moz-justify-content: -moz-flex-end;
-		-webkit-justify-content: -webkit-flex-end;
-		-ms-justify-content: -ms-flex-end;
-		justify-content: flex-end;
-		-moz-transition: opacity 1s ease, -moz-transform 1s ease;
-		-webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
-		-ms-transition: opacity 1s ease, -ms-transform 1s ease;
-		transition: opacity 1s ease, transform 1s ease;
-		position: relative;
-		cursor: default;
-		text-align: center;
-		z-index: 1;
+		justify-content: center;
 		min-height: 100vh;
+	}
+
+	#intro:after {
+		background-color: #000000;
+		content: '';
+		display: block;
+		height: 100%;
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
 	}
 
 		#intro input, #intro select, #intro textarea {
@@ -3634,7 +3642,9 @@ input, select, textarea {
 		-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
 		-ms-transition: -ms-transform 1s ease, opacity 1s ease;
 		transition: transform 1s ease, opacity 1s ease;
-		background: rgba(255, 255, 255, 0.175);
+		background: rgba(0, 0, 0, 0.95);
+		backdrop-filter: blur(10px);
+		border-bottom: 1px solid rgba(0, 204, 127, 0.2);
 		height: 4rem;
 		line-height: 4rem;
 		margin: -4rem auto 0 auto;
@@ -3673,7 +3683,8 @@ input, select, textarea {
 
 			#nav a:hover {
 				border-bottom-color: transparent;
-				color: #18bfef !important;
+				color: #006644 !important;
+				background-color: rgba(0, 102, 68, 0.1);
 			}
 
 		#nav strong, #nav b {
@@ -3725,10 +3736,10 @@ input, select, textarea {
 			}
 
 				#nav ul.links li a {
-					-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-					-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-					-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-					transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+					-moz-transition: color 0.3s ease;
+					-webkit-transition: color 0.3s ease;
+					-ms-transition: color 0.3s ease;
+					transition: color 0.3s ease;
 					display: block;
 					font-size: 0.8rem;
 					outline: none;
@@ -3736,16 +3747,16 @@ input, select, textarea {
 				}
 
 					#nav ul.links li a:hover {
-						color: inherit !important;
-						background-color: rgba(255, 255, 255, 0.1);
+						color: #006644 !important;
+						background-color: rgba(0, 102, 68, 0.1);
 					}
 
 				#nav ul.links li.active {
-					background-color: #ffffff;
+					background-color: var(--color-accent);
 				}
 
 					#nav ul.links li.active a {
-						color: #1e252d;
+						color: var(--color-bg);
 					}
 
 						#nav ul.links li.active a:hover {
@@ -3775,12 +3786,14 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		background-color: #ffffff;
+		background-color: #000000;
 		position: relative;
 		margin: 0 auto;
 		width: calc(100% - 4rem);
 		max-width: 72rem;
 		z-index: 2;
+		min-height: calc(100vh - 4rem); /* Subtract nav height */
+		padding: 4rem 2rem 2rem 2rem;
 	}
 
 		#main > * {
@@ -3798,7 +3811,9 @@ input, select, textarea {
 		}
 
 		#main > .post {
-			padding: 8rem 8rem 6rem 8rem ;
+			padding: 2rem;
+			margin-bottom: 2rem;
+			background-color: rgba(0, 255, 159, 0.05);
 		}
 
 			#main > .post header.major > .date {
@@ -3976,7 +3991,7 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		background-color: #f5f5f5;
+		background-color: #000000;
 		color: #909498;
 		cursor: default;
 		position: relative;
@@ -4636,15 +4651,9 @@ input, select, textarea {
 			border: 0;
 			color: #909498;
 			cursor: pointer;
-			display: block;
-			height: 3.25rem;
-			line-height: 3.25rem;
-			padding-right: 1.25rem;
-			position: absolute;
-			right: 0;
-			text-align: right;
+			display: flex;
+			align-items: center;
 			top: 0;
-			vertical-align: middle;
 			width: 7rem;
 		}
 
@@ -4711,3 +4720,1325 @@ input, select, textarea {
 		}
 
 	}
+
+/* Post */
+
+	.post {
+		width: 100%;
+		max-width: 72rem; /* Matches wrapper max-width */
+		margin: 0 auto;
+	}
+
+/* Override all background images */
+body:before, body:after,
+#wrapper:before, #wrapper:after,
+#intro:before, #intro:after {
+    content: none !important;
+    background-image: none !important;
+}
+
+body {
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
+#wrapper {
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
+/* Improved Typography */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+/* Enhanced Navigation */
+#nav {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 204, 127, 0.2); /* Darker green */
+    transition: all 0.3s ease;
+}
+
+#nav ul.links li a {
+    transition: color 0.3s ease;
+}
+
+#nav ul.links li a:hover {
+    color: #006644 !important; /* Darker green */
+    background-color: rgba(0, 102, 68, 0.1);
+}
+
+/* Content Area Improvements */
+.post {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 204, 127, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.post:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 204, 127, 0.1);
+}
+
+/* Button Styles */
+.button {
+    background-color: transparent;
+    border: 2px solid #006644;
+    color: #ffffff;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    padding: 0.8em 2em;
+}
+
+.button:hover {
+    background-color: #006644;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 204, 127, 0.2);
+}
+
+/* Modern Typography */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    background: #000000;
+}
+
+/* Minimalist Navigation */
+#nav {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#nav ul.links {
+    display: flex;
+    gap: 2rem;
+}
+
+#nav ul.links li a {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 1rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#nav ul.links li a:hover {
+    color: #006644;
+    border-bottom: 2px solid #006644;
+    background: none;
+}
+
+#nav ul.links li.active a {
+    color: #006644;
+    border-bottom: 2px solid #006644;
+}
+
+/* Enhanced Image Galleries */
+.image.fit {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image.fit:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 102, 68, 0);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.image.fit:hover:before {
+    background: rgba(0, 102, 68, 0.2);
+}
+
+.image.fit img {
+    transition: transform 0.5s ease;
+}
+
+.image.fit:hover img {
+    transform: scale(1.05);
+}
+
+/* Content Cards */
+.post {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.post:hover {
+    border-color: rgba(0, 102, 68, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 102, 68, 0.1);
+}
+
+/* Intro Section */
+#intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+#intro p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* Button Styles */
+.button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    padding: 0.8em 2em;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background: #006644;
+    border-color: #006644;
+    transform: translateY(-2px);
+}
+
+/* Section Headers */
+.major h2 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+/* Grid Layout Improvements */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* Fixed Navigation at Top */
+#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Adjust main content to account for fixed nav */
+#main {
+    padding-top: 4rem; /* Height of nav + some spacing */
+}
+
+/* Improved Card Grid Layout */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two cards per line */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Enhanced Card Styling */
+.post {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.post:hover {
+    border-color: rgba(0, 102, 68, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 102, 68, 0.1);
+}
+
+/* Card Header Styling */
+.post header {
+    margin-bottom: 1.5rem;
+}
+
+.post .date {
+    color: #006644;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.post h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+/* Card Image Styling */
+.post .image.fit {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.post .image.fit img {
+    transition: transform 0.5s ease;
+}
+
+.post .image.fit:hover img {
+    transform: scale(1.05);
+}
+
+.post .image.fit:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 102, 68, 0);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.post .image.fit:hover:before {
+    background: rgba(0, 102, 68, 0.2);
+}
+
+/* Card Content Styling */
+.post p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    flex-grow: 1; /* Makes cards equal height */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 980px) {
+    .posts {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+}
+
+/* Intro Section Adjustment */
+#intro {
+    padding-top: 6rem; /* Account for fixed nav */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Navigation Links */
+#nav ul.links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+#nav ul.links li a {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#nav ul.links li a:hover {
+    color: #006644;
+    border-bottom: 2px solid #006644;
+}
+
+#nav ul.links li.active a {
+    color: #006644;
+    border-bottom: 2px solid #006644;
+}
+
+/* Reset wrapper padding to account for fixed nav */
+#wrapper {
+    padding-top: 4rem; /* Height of nav */
+    background: #000000;
+}
+
+/* Fixed Navigation Styling */
+#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#nav ul.links {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+#nav ul.icons {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Force Two Column Layout */
+.posts {
+    display: grid !important; /* Override any existing display properties */
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Card Styling */
+.post {
+    width: 100% !important; /* Override any existing width */
+    margin: 0 !important; /* Override any existing margins */
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+/* Ensure images fit properly in cards */
+.post .image.fit {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.post .image.fit img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .posts {
+        grid-template-columns: 1fr !important; /* Single column on mobile */
+    }
+    
+    #nav {
+        padding: 0.5rem 1rem;
+    }
+    
+    #nav ul.links {
+        gap: 1rem;
+    }
+    
+    #nav ul.links li a {
+        font-size: 0.8rem;
+    }
+}
+
+/* Navigation Link Styling */
+#nav ul.links li a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#nav ul.links li a:hover {
+    color: #006644;
+    border-bottom: 2px solid #006644;
+}
+
+#nav ul.links li.active a {
+    color: #006644;
+    border-bottom: 2px solid #006644;
+}
+
+/* Ensure content starts below fixed nav */
+#main {
+    padding-top: 4rem;
+}
+
+#intro {
+    padding-top: 4rem;
+}
+
+/* Card Layout and Alignment */
+.posts {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Individual Card Styling */
+.post {
+    width: 100% !important;
+    margin: 0 !important;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 3rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Card Title Styling */
+.post h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    text-align: center;
+    width: 100%;
+}
+
+/* Card Date/Period Styling */
+.post .date {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Card Company/Organization Name */
+.post .company {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+    width: 100%;
+}
+
+/* Card Description Text */
+.post p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 1.5rem 0;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Card Image Styling */
+.post .image.fit {
+    width: 100%;
+    max-width: 300px;
+    margin: 2rem auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.post .image.fit img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.post:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 102, 68, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 102, 68, 0.1);
+}
+
+.post:hover .image.fit img {
+    transform: scale(1.05);
+}
+
+/* Position Titles */
+.post .position {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    width: 100%;
+    line-height: 1.2;
+}
+
+/* Organization/Company Styling */
+.post .organization {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Time Period Styling */
+.post .time-period {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .posts {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .post {
+        padding: 2rem;
+    }
+
+    .post .position {
+        font-size: 2rem;
+    }
+
+    .post .organization {
+        font-size: 1.5rem;
+    }
+}
+
+/* Card Content Container */
+.post .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+}
+
+/* Time Period */
+.time-period {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Position Title */
+.position {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* Organization Name */
+.organization {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Image Container */
+.image.fit {
+    width: 200px;
+    height: 200px;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image.fit img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Description Text */
+.post p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin: 1.5rem 0;
+    max-width: 100%;
+}
+
+/* Card Layout */
+.post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Posts Grid */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .posts {
+        grid-template-columns: 1fr;
+    }
+    
+    .position {
+        font-size: 1.5rem;
+    }
+    
+    .organization {
+        font-size: 1.3rem;
+    }
+}
+
+/* Center the posts container */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 600px)); /* Set max width per card */
+    gap: 2rem;
+    justify-content: center; /* Center the grid in the container */
+    width: 100%;
+    max-width: 1400px; /* Increased to account for gap and padding */
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Ensure wrapper allows centering */
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 4rem 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ensure main content area allows centering */
+#main {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2rem; /* Add horizontal padding */
+}
+
+/* Keep cards at consistent width */
+.post {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .posts {
+        grid-template-columns: minmax(0, 600px); /* Single column on mobile */
+    }
+    
+    #wrapper {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Posts grid container - adjust to ensure borders are visible */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 600px));
+    gap: 3rem;
+    justify-content: center;
+    width: calc(100% - 6rem); /* Increased padding to show borders */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 3rem; /* Increased padding */
+}
+
+/* Image container styling */
+.image.fit {
+    width: 200px; /* Fixed width */
+    height: 100px; /* Fixed height */
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.image.fit img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Maintain aspect ratio */
+    display: block; /* Ensure image displays */
+}
+
+/* Post card adjustments */
+.post {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Ensure content is properly centered */
+.post .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Intro section width constraint */
+#intro {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Posts grid container - match intro width */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Changed to fractional units */
+    gap: 3rem;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px; /* Match intro width */
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Post card styling with shadows instead of borders */
+.post {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 102, 68, 0.1), /* Subtle green glow */
+                0 2px 8px rgba(0, 0, 0, 0.2); /* Base shadow */
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 102, 68, 0.2), /* Enhanced green glow */
+                0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced base shadow */
+}
+
+/* Main content area width constraint */
+#main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Wrapper adjustments */
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 4rem 2rem;
+}
+
+/* Image container adjustments */
+.image.fit {
+    width: 200px;
+    height: 100px;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image.fit img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .posts {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    
+    .post {
+        padding: 1.5rem;
+    }
+    
+    #wrapper {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Intro box - set as reference width */
+#intro {
+    width: 100%;
+    max-width: 1000px; /* Reduced from 1200px to match visual */
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 102, 68, 0.1);
+}
+
+/* Posts container - match intro width exactly */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px; /* Match intro width */
+    margin: 0 auto;
+    padding: 0; /* Remove padding that was causing extra width */
+}
+
+/* Navigation styling */
+#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#nav ul.links {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#nav ul.links li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+}
+
+/* Post card styling */
+.post {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 102, 68, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Fix for vertical-align property warning */
+.post * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main wrapper adjustments */
+#wrapper {
+    padding-top: 4rem; /* Space for fixed navigation */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .posts {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    #nav {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Ensure the viewport is properly contained */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation fixes */
+#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 10000; /* Increased z-index */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Posts container - ensure it's centered and contained */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: calc(100% - 4rem); /* Account for margins */
+    max-width: 1000px;
+    margin: 2rem auto;
+    position: relative; /* Add positioning context */
+    left: 50%;
+    transform: translateX(-50%); /* Center properly */
+}
+
+/* Post card styling with visible borders */
+.post {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 0;
+    box-shadow: 0 8px 32px rgba(0, 102, 68, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Ensure it respects its container */
+}
+
+/* Wrapper adjustments */
+#wrapper {
+    width: 100%;
+    max-width: 100vw; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    padding-top: 4rem; /* Space for navigation */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Main content area */
+#main {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+}
+
+/* Navigation links styling */
+#nav ul.links {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#nav ul.links li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+#nav ul.links li a:hover {
+    color: #006644;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .posts {
+        grid-template-columns: 1fr;
+        width: calc(100% - 2rem);
+        padding: 0;
+    }
+    
+    #nav {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Make navigation always visible (remove mobile-only behavior) */
+#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex !important; /* Force display */
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Remove any media query that hides the nav */
+@media screen and (max-width: 980px) {
+    #nav {
+        display: flex !important; /* Override any hiding */
+    }
+}
+
+/* Make posts smaller */
+.posts {
+    max-width: 900px; /* Reduced from 1000px */
+    gap: 1.5rem; /* Slightly reduced gap */
+}
+
+.post {
+    padding: 1.5rem; /* Reduced padding */
+}
+
+/* Change background to pure black */
+body {
+    background-color: #000000 !important; /* Override any existing background */
+}
+
+#main {
+    background-color: #000000 !important;
+}
+
+/* Posts container - restore width but control height */
+.posts {
+    max-width: 1000px; /* Back to original width */
+    gap: 2rem;
+}
+
+.post {
+    padding: 1.5rem 2rem; /* Less vertical padding, keep horizontal */
+    min-height: 0; /* Remove minimum height if any */
+    height: auto; /* Let content determine height */
+}
+
+/* Adjust content spacing inside posts */
+.post .content {
+    gap: 1rem; /* Reduce space between elements */
+}
+
+.time-period {
+    margin-bottom: 0.5rem; /* Reduce bottom margin */
+}
+
+.position {
+    margin-bottom: 0.5rem; /* Reduce bottom margin */
+}
+
+.image.fit {
+    margin: 1rem auto; /* Reduce vertical margins */
+}
+
+/* Posts container - ensure proper spacing and visibility */
+.posts {
+    max-width: 1000px;
+    gap: 2rem;
+    margin: 1rem auto; /* Reduced margin */
+    padding: 0 2rem; /* Add horizontal padding to prevent border cutoff */
+}
+
+/* More compact post cards */
+.post {
+    padding: 1rem 1.5rem; /* Reduced padding */
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 102, 68, 0.15); /* Softer shadow */
+}
+
+/* Tighter content spacing */
+.time-period {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.position {
+    font-size: 1.8rem; /* Slightly smaller */
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+}
+
+.organization {
+    font-size: 1.4rem; /* Slightly smaller */
+    margin-bottom: 0.5rem;
+}
+
+.image.fit {
+    margin: 0.75rem auto;
+    height: 80px; /* Shorter image container */
+}
+
+.post p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Ensure wrapper doesn't clip content */
+#wrapper {
+    overflow: visible; /* Prevent border clipping */
+}
+
+/* Posts container */
+.posts {
+    max-width: 1000px;
+    gap: 2rem;
+    margin: 1rem auto;
+}
+
+/* Compact post layout */
+.post {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Reduced space between elements */
+}
+
+/* Tighter text spacing */
+.time-period {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.position {
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.organization {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.image.fit {
+    height: 50px; /* Smaller image */
+    margin: 0.5rem 0;
+}
+
+.post p {
+    margin: 0;
+    line-height: 1.3;
+}

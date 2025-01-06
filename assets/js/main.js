@@ -255,4 +255,95 @@
 
 		}
 
+	// Add smooth transitions for elements
+	$(document).ready(function() {
+		// Existing initialization code...
+		
+		// Add smooth hover effects to posts
+		$('.post').hover(
+			function() {
+				$(this).css('transform', 'translateY(-5px)');
+			},
+			function() {
+				$(this).css('transform', 'translateY(0)');
+			}
+		);
+		
+		// Enhance navigation transitions
+		$('#nav a').addClass('smooth-transition');
+	});
+
+	// Add smooth scrolling
+	document.addEventListener('DOMContentLoaded', function() {
+		// Existing initialization code...
+
+		// Smooth scroll for all anchor links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					target.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start'
+					});
+				}
+			});
+		});
+
+		// Enhanced hover effects
+		const posts = document.querySelectorAll('.post');
+		posts.forEach(post => {
+			post.addEventListener('mouseenter', function() {
+				this.style.transform = 'translateY(-5px)';
+			});
+			post.addEventListener('mouseleave', function() {
+				this.style.transform = 'translateY(0)';
+			});
+		});
+
+		// Smooth reveal of cards
+		const cards = document.querySelectorAll('.post');
+		
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.style.opacity = '1';
+					entry.target.style.transform = 'translateY(0)';
+					observer.unobserve(entry.target);
+				}
+			});
+		}, observerOptions);
+
+		// Initialize cards
+		cards.forEach((card, index) => {
+			card.style.opacity = '0';
+			card.style.transform = 'translateY(20px)';
+			card.style.transitionDelay = `${index * 0.1}s`;
+			observer.observe(card);
+		});
+
+		// Smooth scroll handling for navigation
+		document.querySelectorAll('#nav a').forEach(anchor => {
+			anchor.addEventListener('click', function(e) {
+				const href = this.getAttribute('href');
+				if (href.startsWith('#')) {
+					e.preventDefault();
+					const target = document.querySelector(href);
+					if (target) {
+						target.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+					}
+				}
+			});
+		});
+	});
+
 })(jQuery);
