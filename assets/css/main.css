@@ -12,8 +12,8 @@
 :root {
     --color-bg: #000000;
     --color-text: #ffffff;
-    --color-accent: #00ff9f;
-    --color-accent-dark: #00cc7f;
+    --color-accent: #484800;
+    --color-accent-dark: #00241f;
     --color-nav: rgba(0, 255, 159, 0.1);
 }
 
@@ -3269,7 +3269,7 @@ input, select, textarea {
 			width: 100%;
 			height: 100%;
 			background-color: #000000;
-			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/black.png");
+			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/justblack.jpg");
 			background-size: auto,								auto,														100% auto;
 			background-position: center,								center,														top center;
 			background-repeat: repeat,								no-repeat,													no-repeat;
@@ -3320,11 +3320,13 @@ input, select, textarea {
 
 	#intro {
 		background-color: #000000;
-		padding: 4rem 2rem;
+		padding: 4rem 2rem 0 2rem; /* Reduced bottom padding to 0 */
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		min-height: 100vh;
+		min-height: 0; /* Remove minimum height requirement */
+		height: auto; /* Let content determine height */
+		margin-bottom: 0; /* Remove bottom margin */
 	}
 
 	#intro:after {
@@ -3422,6 +3424,7 @@ input, select, textarea {
 			font-style: italic;
 			margin-top: -0.25rem;
 			text-align: center;
+			margin-bottom: 0; /* Remove bottom margin */
 		}
 
 		#intro + #header {
@@ -3811,6 +3814,87 @@ input, select, textarea {
 	color: #ffffff;
 }
 
+/* Add this near the top of the file, after any existing nav styles */
+
+#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    box-sizing: border-box;
+    transform: none !important;
+    max-width: none !important;
+    min-width: 100vw;
+}
+
+#nav ul.links {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    list-style: none;
+}
+
+#nav ul.links li a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+}
+
+#nav ul.links li a:hover {
+    color: #00ff9f;
+}
+
+#nav ul.links li.active a {
+    color: #00ff9f;
+    border-bottom: 2px solid #00ff9f;
+}
+
+#nav ul.icons {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    list-style: none;
+}
+
+#nav ul.icons a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#nav ul.icons a:hover {
+    color: #00ff9f;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    overflow-x: visible !important;
+}
+
+@media screen and (max-width: 768px) {
+    #nav {
+        padding: 1rem;
+    }
+    #nav ul.links {
+        gap: 1rem;
+    }
+}
+
 /* Main */
 
 	#main {
@@ -3825,13 +3909,13 @@ input, select, textarea {
 	}
 
 		#main > * {
-			padding: 4rem 4rem 2rem 4rem ;
-			border-top: solid 2px #eeeeee;
+			padding: 4rem 4rem 2rem 4rem;
+			border-top: solid 2px #eeeeee;  /* This is creating the white line */
 			margin: 0;
 		}
 
 			#main > *:first-child {
-				border-top: 0;
+				border-top: 0;  /* This removes the border for the first element */
 			}
 
 		#main > footer {
@@ -3841,7 +3925,7 @@ input, select, textarea {
 		#main > .post {
 			padding: 2rem;
 			margin-bottom: 2rem;
-			background-color: rgba(0, 255, 159, 0.05);
+			background-color: rgba(0, 0, 0, 0.95) !important; /* Changed from rgba(0, 0, 0, 0.5) */
 		}
 
 			#main > .post header.major > .date {
@@ -3857,7 +3941,7 @@ input, select, textarea {
 
 			#main > .post.featured {
 				text-align: center;
-				margin: 0 0 -0.5rem 0;
+				margin-top: 0; /* Remove top margin */
 				padding: 4rem 4rem 3rem 4rem; 
 			}
 
@@ -3927,11 +4011,13 @@ input, select, textarea {
 			}
 
 			#main > .posts > article {
+				background-color: rgba(0, 0, 0, 0.95) !important; /* Changed from rgba(0, 0, 0, 0.5) */
 				border-color: #eeeeee;
 				border-left-width: 2px;
 				border-style: solid;
 				border-top-width: 2px;
 				text-align: center;
+				
 			}
 
 				#main > .posts > article > :last-child {
@@ -4709,6 +4795,11 @@ body {
     background-image: none !important;
 }
 
+#intro {
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
 /* Improved Typography */
 body {
     font-family: 'Source Sans Pro', sans-serif;
@@ -5281,9 +5372,9 @@ body {
 
 /* Position Titles */
 .post .position {
-    font-size: 2.5rem;
+    font-size: 2rem !important;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0 !important;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     text-align: center;
@@ -5295,7 +5386,7 @@ body {
 .post .organization {
     font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem !important;
     text-align: center;
     width: 100%;
 }
@@ -5304,9 +5395,20 @@ body {
 .post .time-period {
     font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem !important;
     text-align: center;
     width: 100%;
+}
+.post {
+    padding: 0.1rem !important;
+}
+
+.posts {
+    gap: 1.5rem !important;
+}
+.post .image.fit {
+  
+    margin: 0.1rem auto !important;
 }
 
 /* Responsive Adjustments */
@@ -6033,12 +6135,14 @@ body {
 /* Add this to ensure borders are visible */
 #main > .posts {
     border-left: none;
-    margin: 0;
+	border-top: none;
+    margin: 2rem;
     padding: 0;
 }
 
 /* Optional: Add this if you want to enhance border visibility */
 #main > .posts > article {
+	
     position: relative;
     border-color: rgba(238, 238, 238, 0.3); /* Make borders more visible against dark background */
 }
@@ -6125,4 +6229,211 @@ body {
     .posts {
         grid-template-columns: 1fr;
     }
+}
+
+#wrapper:before {
+    background: linear-gradient(0.45turn, #000000, #000000);  /* Changed to pure black */
+    opacity: 0.075;
+}
+
+#wrapper:after {
+    background: linear-gradient(0.45turn, #000000, #000000);  /* Changed to pure black */
+    opacity: 0.075;
+}
+
+#intro:before {
+    background: linear-gradient(0.45turn, #000000, #000000);  /* Changed to pure black */
+    opacity: 0.075;
+}
+
+#intro:after {
+    background: linear-gradient(0.45turn, #000000, #000000);  /* Changed to pure black */
+    opacity: 0.075;
+}
+
+/* Or if needed, specifically target the featured post */
+#main > .post.featured {
+    border-bottom: 0 !important;  /* Remove bottom border */
+}
+
+/* Adjust the post image size */
+#main > .posts > article .image {
+    max-width: 100%; /* Allow the image to take full width */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 1rem; /* Add some space below the image */
+}
+
+/* Adjust the text size inside the posts */
+#main > .posts > article {
+    font-size: 0.9rem; /* Reduce the font size for better proportions */
+    line-height: 1.4; /* Adjust line height for readability */
+    padding: 2rem; /* Add padding for better spacing */
+}
+
+/* Adjust the header text size */
+#main > .posts > article header.major > h1,
+#main > .posts > article header.major h2 {
+    font-size: 2.5rem; /* Reduce the header size */
+    line-height: 1.2; /* Adjust line height */
+    margin-bottom: 1rem; /* Add space below the header */
+}
+
+.intro-images {
+    margin: 2rem auto 2rem auto;  /* Increased top margin to 4rem to push images down */
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 0 auto;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;  /* This should already apply to all corners, but if not, we can be explicit: */
+    border-radius: 8px 8px 8px 8px;  /* Top-left, top-right, bottom-right, bottom-left */
+    transition: transform 0.3s ease;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 200px;  /* Reduced from 200px */
+    object-fit: cover;
+    filter: grayscale(0%);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+}
+
+.grid-item:hover img {
+    filter: grayscale(80%);
+}
+
+@media screen and (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+    }
+    
+    .grid-item img {
+        height: 150px;  /* Reduced from 250px */
+    }
+}
+
+/* If needed, we can also adjust the intro text spacing */
+#intro p {
+    margin-bottom: 1rem;  /* Reduce space after the intro text */
+}
+
+/* Logo styling */
+.logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0 0 0;  /* Increased from 2rem to 4rem to move it down */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.logo-wrapper {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    transition: all 0.5s ease;
+    animation: logoFadeIn 0s ease-out forwards;
+}
+
+.ks-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0.9);
+    transition: all 0.3s ease;
+}
+
+/* Cool fade-in animation */
+@keyframes logoFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modern hover effects */
+.logo-wrapper:hover {
+    transform: translateY(-5px) rotate(5deg);
+}
+
+.logo-wrapper:hover .ks-logo {
+    filter: brightness(1.2) contrast(1.1);
+}
+
+/* Glowing effect on hover */
+.logo-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(150, 255, 150, 0.1) 20%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.logo-wrapper:hover::after {
+    opacity: 1;
+}
+
+/* More compact post cards */
+.post {
+    padding: 1rem 1.5rem;  /* Reduced padding */
+    margin-bottom: 1.5rem; /* Reduced margin */
+}
+
+/* Tighter content spacing */
+.time-period {
+    font-size: 0.85rem;  /* Slightly smaller */
+    margin-bottom: 0.3rem;  /* Reduced margin */
+}
+
+.position {
+    font-size: 1.4rem;  /* Slightly smaller */
+    margin-bottom: 0.3rem;  /* Reduced margin */
+    line-height: 1.2;
+}
+
+.organization {
+    font-size: 1.1rem;  /* Slightly smaller */
+    margin-bottom: 0.5rem;  /* Reduced margin */
+}
+
+.image.fit {
+    margin: 0.75rem auto;  /* Reduced margin */
+}
+
+.post p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0.5rem 0;  /* Reduced margin */
+}
+
+/* Adjust grid gap */
+.posts {
+    gap: 1.5rem;  /* Reduced gap between cards */
 }
