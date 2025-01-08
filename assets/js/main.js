@@ -1,9 +1,3 @@
-/*
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 (function($) {
 
 	var	$window = $(window),
@@ -271,6 +265,26 @@
 		
 		// Enhance navigation transitions
 		$('#nav a').addClass('smooth-transition');
+
+		// Add this inside your document ready function
+		function updateScrollTracker() {
+			const windowHeight = window.innerHeight;
+			const documentHeight = document.documentElement.scrollHeight - windowHeight;
+			const scrolled = window.scrollY;
+			const percentScrolled = (scrolled / documentHeight) * 100;
+			
+			const tracker = document.querySelector('.scroll-tracker');
+			if (tracker) {
+				tracker.style.height = `${percentScrolled}%`;
+			}
+		}
+
+		// Add scroll event listener
+		window.addEventListener('scroll', updateScrollTracker);
+		window.addEventListener('resize', updateScrollTracker);
+
+		// Initial call to set tracker position
+		updateScrollTracker();
 	});
 
 	// Add smooth scrolling
@@ -324,7 +338,7 @@
 		cards.forEach((card, index) => {
 			card.style.opacity = '0';
 			card.style.transform = 'translateY(20px)';
-			card.style.transitionDelay = `${index * 0.1}s`;
+			card.style.transitionDelay = `${index * 0.07}s`;
 			observer.observe(card);
 		});
 

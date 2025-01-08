@@ -4,8 +4,6 @@
 
 /*
 	CSS Main 
-	Kamran Samudrala
-	Built using a template for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 /* Add these color variables at the top */
@@ -5979,19 +5977,13 @@ html, body {
 }
 
 /* Change background to pure black */
-body {
-    background-color: #000000 !important; /* Override any existing background */
-}
+
 
 #main {
     background-color: #000000 !important;
 }
 
-/* Posts container - restore width but control height */
-.posts {
-    max-width: 1000px; /* Back to original width */
-    gap: 2rem;
-}
+
 
 .post {
     padding: 1.5rem 2rem; /* Less vertical padding, keep horizontal */
@@ -6436,4 +6428,23 @@ body {
 /* Adjust grid gap */
 .posts {
     gap: 1.5rem;  /* Reduced gap between cards */
+}
+
+.scroll-tracker-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 9999;
+}
+
+.scroll-tracker {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    transition: height 0.1s ease-out;
 }
