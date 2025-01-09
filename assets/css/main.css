@@ -3013,7 +3013,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			header br {
-				display: none;
+				display: flex;
 			}
 
 		}
@@ -3634,17 +3634,22 @@ input, select, textarea {
 /* Nav */
 
 	#nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100vw;
+		margin: 0;
+		background: rgba(0, 0, 0, 0.95);
 		display: flex;
-		position: absolute;
-		top: 2rem;
-		width: calc(100% - 4rem);
-		max-width: 72rem;
-		z-index: 10000;
-		background: transparent;
-		align-items: center;
-		height: 3rem; /* Reduced height */
-		padding: 0 2rem;
 		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 2rem;
+		z-index: 1000;
+		box-sizing: border-box;
+		transform: none !important;
+		max-width: none !important;
+		min-width: 100vw;
 	}
 
 		#nav ul.divided li {
@@ -3780,36 +3785,53 @@ input, select, textarea {
 			opacity: 0.95;
 		}
 
-		@media screen and (max-width: 980px) {
-			#nav {
-				display: none;
-			}
-			
-			#navPanelToggle {
-				display: block;
-			}
-		}
-
-		@media screen and (min-width: 981px) {
-			#nav {
-				display: flex;
-			}
-			
-			#navPanelToggle {
-				display: none;
-			}
-		}
+		
 
 /* Nav Panel Toggle Button */
 #navPanelToggle {
-	display: none;
 	position: fixed;
 	top: 0.75rem;
 	right: 0.75rem;
 	z-index: 10001;
 	padding: 0.375rem 1.25rem;
-	background: rgba(0, 0, 0, 0.85);
+	background: rgba(0, 0, 0, 0.95); /* Changed to match nav background */
 	color: #ffffff;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+	
+}
+
+@media screen and (max-width: 980px) {
+    #navPanelToggle {
+        width: 100%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 1rem 2rem;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 980px) {
+	
+	
+	#navPanelToggle {
+		display: block !important; /* Force display on mobile */
+		background: rgba(0, 0, 0, 0.95);
+	}
+}
+
+@media screen and (min-width: 981px) {
+	#nav {
+		display: flex;
+	}
+	
+	#navPanelToggle {
+		display: none;
+	}
 }
 
 /* Add this near the top of the file, after any existing nav styles */
@@ -4737,7 +4759,7 @@ body {
 		@media screen and (max-width: 980px) {
 
 			#navPanel {
-				display: block;
+				display: block !important;
 			}
 
 		}
@@ -5959,12 +5981,7 @@ html, body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Remove any media query that hides the nav */
-@media screen and (max-width: 980px) {
-    #nav {
-        display: flex !important; /* Override any hiding */
-    }
-}
+
 
 /* Make posts smaller */
 .posts {
@@ -6102,7 +6119,7 @@ html, body {
 /* Nav */
 #nav {
     /* ... existing styles ... */
-    display: flex;
+    display: none;
     position: fixed;
     top: 0;
     width: calc(100% - 4rem);
@@ -6111,16 +6128,11 @@ html, body {
     /* Fix the media query */
 }
 
-/* Update the media query to show nav on larger screens */
-@media screen and (max-width: 980px) {
-    #nav {
-        display: none;
-    }
-}
+
 
 @media screen and (min-width: 981px) {
     #nav {
-        display: flex;
+        display: flex !important;
     }
 }
 
@@ -6447,4 +6459,44 @@ html, body {
     width: 100%;
     background: rgba(255, 255, 255, 0.7);
     transition: height 0.1s ease-out;
+}
+
+@media screen and (max-width: 768px) {
+    #nav {
+        padding: 0.5rem;
+    }
+
+    #nav ul.links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #nav ul.links li {
+        font-size: 0.8rem;
+    }
+
+    
+}
+
+@media screen and (max-width: 480px) {
+    #nav ul.links li a {
+        padding: 0.5rem;
+        font-size: 0.7rem;
+    }
+}
+
+#navPanel {
+    background: rgba(0, 0, 0, 0.95) !important;
+}
+
+#navPanel .links {
+    background: rgba(0, 0, 0, 0.95) !important;
+}
+
+#navPanel .links a {
+    color: #ffffff !important;
 }
